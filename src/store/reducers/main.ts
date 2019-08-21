@@ -28,7 +28,10 @@ export const main: Reducer<IMainReducer, any> = (state = inititalState, action) 
     case mainConstants.GET_MAIN_DATA.SUCCESS:
       return {
         ...state,
-        mainData: action.payload.data,
+        mainData: [
+          ...state.mainData,
+          ...action.payload.data
+        ],
         isDataLoading: false
       };
 

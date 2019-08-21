@@ -33,13 +33,13 @@ export const Table = ({
   const filteredData = data.filter((item: IData) =>
     item.name.toLowerCase().includes(nameFilter.toLowerCase())
     &&
-    minDateFilter 
+    (minDateFilter 
       ? moment(item.startDate, "MM/dd/yyyy") > moment(minDateFilter) 
-      : true
+      : true)
     &&
-    maxDateFilter 
+    (maxDateFilter 
       ? moment(item.endDate, "MM/dd/yyyy") < moment(maxDateFilter) 
-      : true
+      : true)
     &&
     moment(item.startDate, "MM/dd/yyyy") < moment(item.endDate, "MM/dd/yyyy")
   );
@@ -58,14 +58,14 @@ export const Table = ({
         </TableHead>
         <TableBody>
           {filteredData.length 
-            ? filteredData.map((item: IData) => {
+            ? filteredData.map((item: IData, index: number) => {
 
                 const active = 
                   moment() > moment(item.startDate, "MM/dd/yyyy") &&
                   moment() < moment(item.endDate, "MM/dd/yyyy")
               
                 return (
-                  <TableRow key={item.id}>
+                  <TableRow key={index}>
                     <TableCell component="th" scope="row">
                       {item.name}
                     </TableCell>

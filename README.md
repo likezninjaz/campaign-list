@@ -1,4 +1,4 @@
-campaign-list
+<h1>Campaign list renderer</h1>
 
-Init: yarn
-Start: npm start
+<p>Init: yarn</p>
+<p>Start: npm start</p>

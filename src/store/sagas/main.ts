@@ -12,7 +12,7 @@ export function* getMainDataWatcher() {
     yield (call as any)(
       fetchDataWorker,
       network.get,
-      `http://www.mocky.io/v2/5d5cfa10330000770057b5c5`,
+      `https://www.mocky.io/v2/5d5cfa10330000770057b5c5`,
       getMainData
     )
   }

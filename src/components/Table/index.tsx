@@ -89,7 +89,7 @@ export const Table = ({
             : !isDataLoading && 
               <TableRow>
                 <TableCell>
-                  No data found
+                  No data found, try to type <i>"AddCampaigns()"</i> in browser's console
                 </TableCell>
               </TableRow>
           }

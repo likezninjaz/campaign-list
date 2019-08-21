@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Input } from '../../components/Input';
@@ -28,6 +28,12 @@ export interface IData {
   active: boolean
 }
 
+declare global {
+  interface Window {
+    AddCampaigns: any
+  }
+}
+
 export const Main = () => {
 
   const dispatch = useDispatch()
@@ -37,11 +43,8 @@ export const Main = () => {
   const [maxDate, setMaxDate] = useState();
   const [minDate, setMinDate] = useState();
   const [searchValue, setSearchValue] = useState('');
-  
-  useEffect(() => {
-    dispatch(getMainData.request());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+  window.AddCampaigns = () => dispatch(getMainData.request());
 
   return (
     <Container>
